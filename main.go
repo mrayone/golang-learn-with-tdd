@@ -1,9 +1,10 @@
 package main
 
 import (
-	"learn-go-with-tests/di"
 	"log"
 	"net/http"
+
+	"github.com/mrayone/learn-go/di"
 )
 
 func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {

@@ -1,3 +1,3 @@
-module learn-go-with-tests
+module github.com/mrayone/learn-go
 
 go 1.19
