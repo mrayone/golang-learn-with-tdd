@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/mrayone/learn-go/di"
 	"github.com/mrayone/learn-go/mocking"
@@ -14,6 +15,6 @@ func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
-
-	mocking.Countdown(os.Stdout, &mocking.DefaultSleeper{})
+	sleeper := &mocking.ConfigurableSleeper{Duration: 1 * time.Second, SleepFunc: time.Sleep}
+	mocking.Countdown(os.Stdout, sleeper)
 }
