@@ -28,7 +28,6 @@ Go!`
 	t.Run("sleep before every print", func(t *testing.T) {
 		spySleepPrinter := &SpyCountdownOperations{}
 		Countdown(spySleepPrinter, spySleepPrinter)
-
 		want := []string{
 			write,
 			sleep,
