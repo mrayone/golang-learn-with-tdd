@@ -49,3 +49,33 @@ func BenchmarkCheckWebsites(b *testing.B) {
 		CheckWebsites(slowStubWebsiteChecker, urls)
 	}
 }
+
+func BenchmarkCheckWebsitesTwo(b *testing.B) {
+	urls := make([]string, 100)
+	// arrange
+	for i := 0; i < len(urls); i++ {
+		urls[i] = "a url"
+	}
+
+	// reset timer
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		CheckWebsitesTwo(slowStubWebsiteChecker, urls)
+	}
+}
+
+func BenchmarkCheckWebsitesThree(b *testing.B) {
+	urls := make([]string, 100)
+	// arrange
+	for i := 0; i < len(urls); i++ {
+		urls[i] = "a url"
+	}
+
+	// reset timer
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		CheckWebsitesTwo(slowStubWebsiteChecker, urls)
+	}
+}
