@@ -52,3 +52,6 @@ Channel allow to communicate with caller function and write things in memory in 
 ### Select
 Able that we receive data from multiple goroutines base on switch case statement. It's very helpful when we need to choice which data we want to use.
 > Note: It's very common to create a case with a signal that abort channels to avoid a block.
+
+### Httptest
+A package that allow we interfaces a real net/http servers which is consistent.
