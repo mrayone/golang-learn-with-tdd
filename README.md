@@ -27,8 +27,8 @@ Learning golang with quick book [quii](https://quii.gitbook.io/learn-go-with-tes
   - How to create errors that are constants
   - Writing error wrappers
 
-
 ## Mocking
+
 Create mocks is really important, because we can test only business logic without
 take care with third part systems. Our code would be more effective and take a fast
 feedback.
@@ -42,16 +42,29 @@ feedback.
 read more: [Test Dobule](https://martinfowler.com/bliki/TestDouble.html)
 
 ## Concurrency
+
 Concurrency in go is great. We've to be able to create code that execute things in the same time. The syntax is nice and simplier.
 
 ### channels
+
 Channel allow to communicate with caller function and write things in memory in the same time.
+
 - Waiting groups configure that the function should be wait of the all goroutines finish
 - Mutex tell to scheduler that the shared item of memory is open or lock to change, so the goroutine need to wait until the item is open to change.
 
 ### Select
+
 Able that we receive data from multiple goroutines base on switch case statement. It's very helpful when we need to choice which data we want to use.
+
 > Note: It's very common to create a case with a signal that abort channels to avoid a block.
 
 ### Httptest
+
 A package that allow we interfaces a real net/http servers which is consistent.
+
+## Generics
+
+- [x] Mading a generic array and slices.
+- [x] Assertions for generics types.
+- [x] Creating generics with type-safety.
+- [x] Understand about interface{} and any, both are the same, and use it lost type-safety of Go.
