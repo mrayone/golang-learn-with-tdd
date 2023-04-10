@@ -33,7 +33,7 @@ func LinearTime(list []string) (string, error) {
 	return output, nil
 }
 
-// Logarithm Time O(log n)
+// Logarithmic Time O(log n)
 // The Binary Search method takes a sorted list of elements and
 // searches through it for the element x.
 // With every iteration, the size of our search list shrinks by half. Therefore traversing and finding an entry in the list takes O(log(n)) time.
