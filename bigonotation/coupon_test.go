@@ -1,10 +1,10 @@
-package computerscience_test
+package bigonotation_test
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/mrayone/learn-go/computerscience"
+	"github.com/mrayone/learn-go/bigonotation"
 )
 
 func TestCollector(t *testing.T) {
@@ -19,7 +19,7 @@ func TestCollector(t *testing.T) {
 	}
 	for _, tc := range testCases {
 		t.Run(tc.desc, func(t *testing.T) {
-			output := computerscience.Collector(tc.input)
+			output := bigonotation.Collector(tc.input)
 
 			fmt.Println(output)
 			if output == 0 {

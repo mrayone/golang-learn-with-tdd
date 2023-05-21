@@ -1,4 +1,4 @@
-package computerscience
+package bigonotation
 
 import (
 	"math/rand"
