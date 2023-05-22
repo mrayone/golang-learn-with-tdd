@@ -25,7 +25,7 @@ func binarySearchRecurse(lo, hi int, scanner *bufio.Scanner) (int, error) {
 			return 0, errors.New("you must given a valid boolean assertion, true or false")
 		}
 
-		if isTrue {
+		if !isTrue {
 			return binarySearchRecurse(lo, mid, scanner)
 		} else {
 			return binarySearchRecurse(mid, hi, scanner)

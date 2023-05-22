@@ -21,26 +21,26 @@ func TestPlayTweentyQuestions(t *testing.T) {
 			desc: "guess the 77 number",
 			inputs: []string{
 				fmt.Sprintf("%d\n", 7), // questions quantity
-				"false\n",
-				"true\n",
 				"true\n",
 				"false\n",
 				"false\n",
 				"true\n",
+				"true\n",
 				"false\n",
+				"true\n",
 			},
 			expectedValue: fmt.Sprintf("Your number is %d\n", 77),
 		},
 		{
 			desc: "guess the 44 number",
 			inputs: []string{
-				fmt.Sprintf("%d\n", 6), // questions quantity
-				"false\n",
+				fmt.Sprintf("%d\n", 6), // questions quantity 101100
 				"true\n",
-				"false\n",
 				"false\n",
 				"true\n",
 				"true\n",
+				"false\n",
+				"false\n",
 			},
 			expectedValue: fmt.Sprintf("Your number is %d\n", 44),
 		},
