@@ -1,8 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
+
+	"github.com/mrayone/learn-go/computerscience"
 )
 
 // import (
@@ -25,7 +29,12 @@ import (
 // }
 
 func main() {
-	fmt.Println(secondsinradians())
+	// fmt.Println(secondsinradians())
+	reader := bufio.NewReader(os.Stdin)
+
+	guess, _ := computerscience.PlayTwentyQuestions(reader)
+
+	fmt.Println(guess)
 }
 
 func zero() float64 {
