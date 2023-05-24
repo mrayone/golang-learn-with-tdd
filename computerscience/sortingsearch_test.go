@@ -69,3 +69,92 @@ func assertError(t testing.TB, got, want error) {
 		t.Errorf("got error %q want %q given", got, want)
 	}
 }
+
+type TestCaseSearch[T comparable] struct {
+	desc     string
+	key      T
+	values   []computerscience.Comparable[T]
+	expected int
+}
+
+func TestSearch(t *testing.T) {
+	stackStrings := []computerscience.Comparable[computerscience.String]{
+		computerscience.String("aaa"),
+		computerscience.String("bbb"),
+		computerscience.String("ccc"),
+		computerscience.String("ooo"),
+	}
+
+	testCasesStrings := []TestCaseSearch[computerscience.String]{
+		{
+			desc:     "find key aaa",
+			values:   stackStrings,
+			key:      "aaa",
+			expected: 0,
+		},
+		{
+			desc:     "find key bbb",
+			values:   stackStrings,
+			key:      "bbb",
+			expected: 1,
+		},
+		{
+			desc:     "find key ooo",
+			values:   stackStrings,
+			key:      "ooo",
+			expected: 3,
+		},
+		{
+			desc:     "find key ccc",
+			values:   stackStrings,
+			key:      "ccc",
+			expected: 2,
+		},
+	}
+	for _, tc := range testCasesStrings {
+		t.Run(tc.desc, func(t *testing.T) {
+			got := computerscience.Search(tc.key, tc.values)
+
+			if got != tc.expected {
+				t.Errorf("unexpected value, got %d want %d", got, tc.expected)
+			}
+		})
+	}
+
+	personsStack := []computerscience.Comparable[computerscience.Person]{
+		computerscience.Person{Name: "Alisson Doe"},
+		computerscience.Person{Name: "Bob Doe"},
+		computerscience.Person{Name: "John Doe"},
+		computerscience.Person{Name: "Joana Doe"},
+	}
+
+	testCasesPerson := []TestCaseSearch[computerscience.Person]{
+		{
+			desc:     "find person Maycon",
+			values:   personsStack,
+			key:      computerscience.Person{Name: "Maycon"},
+			expected: -1,
+		},
+		{
+			desc:     "find key Bob Doe",
+			values:   personsStack,
+			key:      computerscience.Person{Name: "Bob Doe"},
+			expected: 1,
+		},
+		{
+			desc:     "find key John Doe",
+			values:   personsStack,
+			key:      computerscience.Person{Name: "John Doe"},
+			expected: 2,
+		},
+	}
+	for _, tc := range testCasesPerson {
+		t.Run(tc.desc, func(t *testing.T) {
+			got := computerscience.Search(tc.key, tc.values)
+
+			if got != tc.expected {
+				t.Errorf("unexpected value, got %d want %d", got, tc.expected)
+			}
+		})
+	}
+}
