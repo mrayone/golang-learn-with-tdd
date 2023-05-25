@@ -12,29 +12,47 @@ import (
 // search package
 type Comparable[T comparable] interface {
 	CompareTo(value T) int
+	GetInstance() T
 }
 
 func Search[T comparable](key T, arr []Comparable[T]) int {
-	return search(key, arr, 0, len(arr)-1)
+	return search(key, arr, 0, len(arr))
 }
 
 // Search consider only strings for now
 func search[T comparable](key T, arr []Comparable[T], lo, hi int) int {
-	if hi < lo {
+	if hi <= lo {
 		return -1
 	}
 
-	mid := (hi + lo) / 2
+	mid := lo + (hi-lo)/2
 	comp := arr[mid].CompareTo(key)
 	if comp > 0 {
-		hi = mid - 1
+		return search(key, arr, lo, mid)
 	} else if comp < 0 {
-		lo = mid + 1
+		return search(key, arr, mid+1, hi)
 	} else {
 		return mid
 	}
+}
 
-	return search(key, arr, lo, hi)
+func InsertionSort[T comparable](arr []Comparable[T]) {
+	n := len(arr)
+	for i := 1; i < n; i++ {
+		for j := i; j > 0; j-- {
+			if arr[j].CompareTo(arr[j-1].GetInstance()) < 0 {
+				exchange(arr, j-1, j)
+			} else {
+				break
+			}
+		}
+	}
+}
+
+func exchange[T comparable](a []Comparable[T], i, j int) {
+	temp := a[j]
+	a[j] = a[i]
+	a[i] = temp
 }
 
 // PlayTwentyQuestions for given integer input
@@ -103,18 +121,27 @@ func (s String) CompareTo(v String) int {
 	return 0
 }
 
+func (s String) GetInstance() String {
+	return s
+}
+
 type Person struct {
 	Name, Job string
 	Age       int
 }
 
-func (s Person) CompareTo(v Person) int {
-	if s.Name < v.Name {
+func (p Person) CompareTo(v Person) int {
+	if p.Name < v.Name {
 		return -1
 	}
-	if s.Name > v.Name {
+
+	if p.Name > v.Name {
 		return 1
 	}
 
 	return 0
+}
+
+func (p Person) GetInstance() Person {
+	return p
 }

@@ -130,7 +130,7 @@ func TestSearch(t *testing.T) {
 
 	testCasesPerson := []TestCaseSearch[computerscience.Person]{
 		{
-			desc:     "find person Maycon",
+			desc:     "not find person Maycon",
 			values:   personsStack,
 			key:      computerscience.Person{Name: "Maycon"},
 			expected: -1,
@@ -157,4 +157,17 @@ func TestSearch(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExampleInsertionSort() {
+	personsStack := []computerscience.Comparable[computerscience.Person]{
+		computerscience.Person{Name: "John Doe"},
+		computerscience.Person{Name: "Alisson Doe"},
+		computerscience.Person{Name: "Joana Doe"},
+		computerscience.Person{Name: "Bob Doe"},
+	}
+	computerscience.InsertionSort(personsStack)
+	fmt.Println(personsStack)
+	//Output: [{Alisson Doe  0} {Bob Doe  0} {Joana Doe  0} {John Doe  0}]
+
 }
