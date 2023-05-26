@@ -3,6 +3,7 @@ package computerscience_test
 import (
 	"bytes"
 	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/mrayone/learn-go/computerscience"
@@ -154,6 +155,49 @@ func TestSearch(t *testing.T) {
 
 			if got != tc.expected {
 				t.Errorf("unexpected value, got %d want %d", got, tc.expected)
+			}
+		})
+	}
+}
+
+type TestCaseSort[T comparable] struct {
+	desc     string
+	values   []computerscience.Comparable[T]
+	expected []computerscience.Comparable[T]
+}
+
+func TestMergeSort(t *testing.T) {
+	stack := []computerscience.Comparable[computerscience.Int]{
+		computerscience.Int(7),
+		computerscience.Int(2),
+		computerscience.Int(3),
+		computerscience.Int(4),
+		computerscience.Int(1),
+		computerscience.Int(5),
+		computerscience.Int(6),
+	}
+
+	testCasesStrings := []TestCaseSort[computerscience.Int]{
+		{
+			desc:   "sort array",
+			values: stack,
+			expected: []computerscience.Comparable[computerscience.Int]{
+				computerscience.Int(1),
+				computerscience.Int(2),
+				computerscience.Int(3),
+				computerscience.Int(4),
+				computerscience.Int(5),
+				computerscience.Int(6),
+				computerscience.Int(7),
+			},
+		},
+	}
+	for _, tc := range testCasesStrings {
+		t.Run(tc.desc, func(t *testing.T) {
+			computerscience.MergeSort(tc.values)
+
+			if !reflect.DeepEqual(tc.values, tc.expected) {
+				t.Errorf("unexpected value, got %d want %d", tc.values, tc.expected)
 			}
 		})
 	}

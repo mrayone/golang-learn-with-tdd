@@ -49,6 +49,43 @@ func InsertionSort[T comparable](arr []Comparable[T]) {
 	}
 }
 
+func MergeSort[T comparable](arr []Comparable[T]) {
+	size := len(arr)
+	aux := make([]Comparable[T], size)
+	mergeSort(arr, aux, 0, size)
+}
+
+func mergeSort[T comparable](arr []Comparable[T], aux []Comparable[T], lo, hi int) {
+	if hi-lo <= 1 {
+		return
+	}
+
+	mid := lo + (hi-lo)/2
+	mergeSort(arr, aux, lo, mid)
+	mergeSort(arr, aux, mid, hi)
+
+	i, j := lo, mid
+	for k := lo; k < hi; k++ {
+		if i == mid {
+			aux[k] = arr[j]
+			j = j + 1
+		} else if j == hi {
+			aux[k] = arr[i]
+			i = i + 1
+		} else if arr[j].CompareTo(arr[i].GetInstance()) < 0 {
+			aux[k] = arr[j]
+			j = j + 1
+		} else {
+			aux[k] = arr[i]
+			i = i + 1
+		}
+	}
+
+	for k := lo; k < hi; k++ {
+		arr[k] = aux[k]
+	}
+}
+
 func exchange[T comparable](a []Comparable[T], i, j int) {
 	temp := a[j]
 	a[j] = a[i]
@@ -123,6 +160,23 @@ func (s String) CompareTo(v String) int {
 
 func (s String) GetInstance() String {
 	return s
+}
+
+type Int int
+
+func (i Int) CompareTo(v Int) int {
+	if i < v {
+		return -1
+	}
+	if i > v {
+		return 1
+	}
+
+	return 0
+}
+
+func (i Int) GetInstance() Int {
+	return i
 }
 
 type Person struct {
