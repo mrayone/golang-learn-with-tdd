@@ -68,16 +68,16 @@ func mergeSort[T comparable](arr []Comparable[T], aux []Comparable[T], lo, hi in
 	for k := lo; k < hi; k++ {
 		if i == mid {
 			aux[k] = arr[j]
-			j = j + 1
+			j++
 		} else if j == hi {
 			aux[k] = arr[i]
-			i = i + 1
+			i++
 		} else if arr[j].CompareTo(arr[i].GetInstance()) < 0 {
 			aux[k] = arr[j]
-			j = j + 1
+			j++
 		} else {
 			aux[k] = arr[i]
-			i = i + 1
+			i++
 		}
 	}
 
