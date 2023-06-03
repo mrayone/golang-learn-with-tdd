@@ -6,11 +6,24 @@ import (
 	"github.com/mrayone/learn-go/computerscience"
 )
 
-func ExampleArrayOfString() {
+func ExampleNewArrayOfStrings() {
 	a := computerscience.NewArrayOfStrings(3)
 	a.Push("a")
 	a.Push("b")
 	a.Push("c")
 	fmt.Println(a.Pop())
 	//Output: c
+}
+
+func ExampleLinkedStackOfStrings() {
+	list := computerscience.LinkedStackOfStrings{}
+	list.Push("to")
+	list.Push("be")
+	list.Push("not")
+	list.Push("that")
+	list.Push("or")
+	list.Push("be")
+
+	fmt.Println(list.ToString())
+	//Output: be or that not be to
 }
