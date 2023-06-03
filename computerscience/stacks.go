@@ -1,5 +1,7 @@
 package computerscience
 
+import "fmt"
+
 type ArrayStackOfStrings struct {
 	items []string
 	n     int
@@ -61,4 +63,56 @@ func (a *LinkedStackOfStrings) ToString() string {
 	}
 
 	return itens
+}
+
+type ResizingtackOfStrings struct {
+	items []string
+	n     int
+}
+
+func NewResizingtackOfStrings() ResizingtackOfStrings {
+	return ResizingtackOfStrings{
+		items: make([]string, 1),
+		n:     0,
+	}
+}
+
+func (a *ResizingtackOfStrings) resize(capacity int) {
+	temp := make([]string, capacity)
+	for i := 0; i < a.n; i++ {
+		temp[i] = a.items[i]
+	}
+	a.items = temp
+}
+
+func (a *ResizingtackOfStrings) IsEmpty() bool {
+	return a.n == 0
+}
+
+func (a *ResizingtackOfStrings) Pop() string {
+	// Remove and return most recently inserted item.
+	val := a.items[a.n-1]
+	a.n--
+	a.items[a.n] = "" // Avoid loitering.
+	size := len(a.items)
+	if a.n > 0 && a.n == size/4 {
+		a.resize(size / 2)
+	}
+
+	return val
+}
+
+func (a *ResizingtackOfStrings) Push(v string) {
+	// Insert item onto stack.
+	size := len(a.items)
+	if a.n == size {
+		a.resize(2 * size)
+	}
+
+	a.items[a.n] = v
+	a.n++
+}
+
+func (a *ResizingtackOfStrings) ToString() string {
+	return fmt.Sprintf("%v", a.items)
 }

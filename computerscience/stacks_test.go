@@ -27,3 +27,27 @@ func ExampleLinkedStackOfStrings() {
 	fmt.Println(list.ToString())
 	//Output: be or that not be to
 }
+
+func ExampleNewResizingtackOfStrings() {
+	res := computerscience.NewResizingtackOfStrings()
+	res.Push("to")
+	res.Push("be")
+	res.Push("or")
+	res.Push("not")
+	res.Push("to")
+
+	res.Pop()
+
+	res.Push("be")
+	res.Pop()
+	res.Pop()
+	res.Push("that")
+	res.Pop()
+	res.Pop()
+	res.Pop()
+	res.Push("is")
+
+	fmt.Println(res.ToString())
+	//Output:
+	//[to is]
+}
