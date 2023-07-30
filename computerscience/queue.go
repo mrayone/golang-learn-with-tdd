@@ -44,3 +44,23 @@ func (a *Queue) ToString() string {
 
 	return itens
 }
+
+/*
+Random queue. A random queue is a collection that supports the following
+API: RandomQueue<Item>
+	RandomQueue()	create an empty random queue
+	boolean isEmpty() is the random queue empty?
+  enqueue(Item item) add item to the random queue
+  dequeue() Item remove and return a random item
+						(sample without replacement)
+  sample() Item return a random item, but do not remove
+					(sample with replacement)
+
+API for a generic random queue
+Write a class RandomQueue that implements this API. Hint : Use a resizing array. To
+remove an item, swap one at a random position (indexed 0 through n-1) with the
+one at the last position (index n-1). Then, remove and return the last item, as in
+ResizingArrayStack. Write a client that prints a deck of cards in random order using RandomQueue<Card>.
+*/
+
+// Random queue
