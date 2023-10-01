@@ -41,7 +41,6 @@ func FindAllConfig(data map[string]string) (map[string]string, error) {
 	//if err := json.Unmarshal(jsonStr, &config); err != nil {
 	//	return Config{}, err
 	//}
-
 	return configs, nil
 }
 
