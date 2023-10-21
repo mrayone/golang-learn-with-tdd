@@ -34,7 +34,11 @@ func main() {
 
 	//concurrency.SleepRoutine()
 
-	concurrency.SleepRoutineSelect()
+	//concurrency.SleepRoutineSelect()
+
+	//concurrency.Buzzgame()
+
+	concurrency.PrintTable()
 }
 
 func zero() float64 {
