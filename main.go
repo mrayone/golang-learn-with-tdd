@@ -1,12 +1,8 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
+	"github.com/mrayone/learn-go/concurrency"
 	"math"
-	"os"
-
-	"github.com/mrayone/learn-go/computerscience"
 )
 
 // import (
@@ -30,11 +26,15 @@ import (
 
 func main() {
 	// fmt.Println(secondsinradians())
-	reader := bufio.NewReader(os.Stdin)
+	//reader := bufio.NewReader(os.Stdin)
+	//
+	//guess, _ := computerscience.PlayTwentyQuestions(reader)
+	//
+	//fmt.Println(guess)
 
-	guess, _ := computerscience.PlayTwentyQuestions(reader)
+	//concurrency.SleepRoutine()
 
-	fmt.Println(guess)
+	concurrency.SleepRoutineSelect()
 }
 
 func zero() float64 {
