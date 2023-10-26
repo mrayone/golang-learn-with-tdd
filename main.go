@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mrayone/learn-go/concurrency"
+	"github.com/mrayone/learn-go/concurrencypatterns"
 	"math"
 )
 
@@ -38,7 +38,9 @@ func main() {
 
 	//concurrency.Buzzgame()
 
-	concurrency.PrintTable()
+	//concurrency.PrintTable()
+
+	concurrencypatterns.FanIn()
 }
 
 func zero() float64 {
