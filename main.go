@@ -40,7 +40,10 @@ func main() {
 
 	//concurrency.PrintTable()
 
-	concurrencypatterns.FanIn()
+	//	concurrencypatterns.FanIn()
+
+	//concurrencypatterns.CookFood()
+	concurrencypatterns.SendMoney()
 }
 
 func zero() float64 {
