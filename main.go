@@ -43,7 +43,12 @@ func main() {
 	//	concurrencypatterns.FanIn()
 
 	//concurrencypatterns.CookFood()
-	concurrencypatterns.SendMoney()
+	//concurrencypatterns.SendMoney()
+
+	//concurrencypatterns.ForLopRun()
+
+	//concurrencypatterns.ForLoopRun2()
+	concurrencypatterns.ForLoop3()
 }
 
 func zero() float64 {
