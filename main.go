@@ -48,7 +48,10 @@ func main() {
 	//concurrencypatterns.ForLopRun()
 
 	//concurrencypatterns.ForLoopRun2()
-	concurrencypatterns.ForLoop3()
+	//concurrencypatterns.ForLoop3()
+
+	//concurrencypatterns.RunRace()
+	concurrencypatterns.RunTimeout()
 }
 
 func zero() float64 {
