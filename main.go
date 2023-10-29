@@ -51,7 +51,9 @@ func main() {
 	//concurrencypatterns.ForLoop3()
 
 	//concurrencypatterns.RunRace()
-	concurrencypatterns.RunTimeout()
+	//concurrencypatterns.RunTimeout()
+
+	concurrencypatterns.RunSumOfSquares()
 }
 
 func zero() float64 {
