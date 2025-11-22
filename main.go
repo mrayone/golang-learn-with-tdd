@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mrayone/learn-go/concurrencypatterns"
+	"github.com/mrayone/learn-go/concurrency"
 	"math"
 )
 
@@ -53,7 +53,10 @@ func main() {
 	//concurrencypatterns.RunRace()
 	//concurrencypatterns.RunTimeout()
 
-	concurrencypatterns.RunSumOfSquares()
+	//concurrencypatterns.RunSumOfSquares()
+
+	concurrency.Sender()
+
 }
 
 func zero() float64 {
